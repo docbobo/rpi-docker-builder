@@ -1,6 +1,6 @@
 
 # Pull base image
-FROM resin/rpi-raspbian:jessie
+FROM aarch64/debian:jessie
 MAINTAINER Dieter Reuter <dieter@hypriot.com>
 
 # Install dependencies
@@ -19,8 +19,8 @@ RUN apt-get update && apt-get install -y \
     rm -rf /var/lib/apt/lists/*
 
 # Install Go (using a pre-compiled version)
-ENV GO_VERSION 1.4.3
-RUN curl -sSL https://github.com/hypriot/golang-armbuilds/releases/download/v${GO_VERSION}/go${GO_VERSION}.linux-armv7.tar.gz | tar -xz -C /usr/local
+ENV GO_VERSION 1.7.4
+RUN curl -sSL https://github.com/hypriot/golang-armbuilds/releases/download/v${GO_VERSION}/go${GO_VERSION}.linux-arm64.tar.gz | tar -xz -C /usr/local
 ENV PATH /usr/local/go/bin:$PATH
 
 # Install AWS CLI

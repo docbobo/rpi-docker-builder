@@ -9,7 +9,7 @@ BUILD_REVISION=$2
 PACKAGE_NAME=docker-hypriot
 PACKAGE_VERSION=$DOCKER_VERSION
 PACKAGE_REVISION=$BUILD_REVISION
-PACKAGE_ARCH=armhf
+PACKAGE_ARCH=aarch64
 PACKAGE_ROOT=/pkg-debian
 DEB_FILE=${PACKAGE_NAME}_${PACKAGE_VERSION}${PACKAGE_REVISION}_${PACKAGE_ARCH}.deb
 TAR_FILE=${PACKAGE_NAME}-${DOCKER_VERSION}-${PACKAGE_REVISION}-${PACKAGE_ARCH}.tar.gz
@@ -63,7 +63,7 @@ export AUTO_GOPATH=1
 #sed -i 's/,amd64//' vendor/src/github.com/opencontainers/runc/libcontainer/seccomp/jump_linux.go
 #set +x
 #---FIX
-GOARM=6 ./hack/make.sh dynbinary
+GOARCH=arm64 ./hack/make.sh dynbinary
 
 # create tarball with Docker binaries
 tar czf /$TAR_FILE -C /src/docker/bundles/$DOCKER_VERSION/dynbinary/ .
