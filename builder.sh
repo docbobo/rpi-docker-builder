@@ -63,7 +63,7 @@ export AUTO_GOPATH=1
 #sed -i 's/,amd64//' vendor/src/github.com/opencontainers/runc/libcontainer/seccomp/jump_linux.go
 #set +x
 #---FIX
-GOARCH=arm64 ./hack/make.sh dynbinary
+GOARCH=arm64 ./hack/make.sh dynbinary binary tgz
 
 # create tarball with Docker binaries
 tar czf /$TAR_FILE -C /src/docker/bundles/$DOCKER_VERSION/dynbinary/ .
